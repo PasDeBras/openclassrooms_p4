@@ -11,6 +11,6 @@
     </body>
 
     <footer>
-
+        <p>placeholder footer</p>
     </footer>
 </html>
