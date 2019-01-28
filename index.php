@@ -33,21 +33,18 @@ try { // On essaie de faire des choses
             }
         }
         // ------------ Fonction flag comment ----------------
-        // elseif ($_GET['action'] == 'flagComment') {
-        //     if (isset($_GET['commentId']) && $_GET['commentId'] > 0) {
-        //         if (isset($_GET['postId']) && $_GET['postId'] > 0) {
-        //             if (flagCheck($_GET['commentId']) === TRUE) {
-        //                 addFlag($_GET['commentId'], $_GET['postId'], TRUE);
-        //             } else {
-        //                 addFlag($_GET['commentId'], $_GET['postId'], FALSE);
-        //             }
-        //         } else {
-        //             throw new Exception('Erreur : identifiant du billet non-renseigné !');
-        //         }
-        //     } else {
-        //         throw new Exception('Erreur : identifiant du commentaire non-renseigné !');
-        //     }
-        // }
+        elseif ($_GET['action'] == 'flagComment') {
+            if (isset($_GET['commentId']) && $_GET['commentId'] > 0) {
+                if (isset($_GET['postId']) && $_GET['postId'] > 0) {
+                    require('controller/singlePostController.php');
+                    addFlag($_GET['commentId'], $_GET['postId']);
+                } else {
+                    throw new Exception('Erreur : identifiant du billet non-renseigné !');
+                }
+            } else {
+                throw new Exception('Erreur : identifiant du commentaire non-renseigné !');
+            }
+        }
     }
     else {
         require('controller/allPostsController.php');

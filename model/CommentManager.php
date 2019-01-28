@@ -23,29 +23,15 @@ class CommentManager extends Manager
         return $affectedLines;
     }
 
-    // ------------ Fonction flag comment ----------------
-    // public function flagCheck($commentId)
-    // {
-    //     $db = $this->dbConnect();
-    //     $req = $db->prepare('SELECT flag FROM comments WHERE id = ?');
-    //     $isFlagged = $req->execute(array($commentId));
+    public function flagComment($commentId)
+    {
+        $db = $this->dbConnect();
 
-    //     return $isFlagged;
-    // }
+        $flag = $db->prepare('UPDATE comments SET flagged = flagged + 1 WHERE ID = ?');
+        $flagged = $flag->execute(array($commentId));
 
-    // public function flagComment($postId, $isFlagged)
-    // {
-    //     $db = $this->dbConnect();
-    //     if ($isFlagged === true) {
-    //         $flag = $db->prepare('UPDATE comments SET flagged = flagged + 1 WHERE ID = ?');
-    //         $flagged = $flag->execute(array($postId));
-
-    //     } else {
-    //         $flag = $db->prepare('UPDATE comments SET flag = 1, flagged = flagged + 1 WHERE ID = ?');
-    //         $flagged = $flag->execute(array($postId));
-
-    //     }
-    //     return $flagged;
-    // }
+        
+        return $flagged;
+    }
 
 }

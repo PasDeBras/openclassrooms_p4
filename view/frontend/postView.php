@@ -38,8 +38,17 @@
         ?>
             <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
             <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
-            <p><a href="index.php?action=flagComment&amp;commentId=<?= $comment['id'] ?>&amp;postId=<?= $post['id'] ?>">signaler ce commentaire</a></p>
-        <?php
+            <?php
+            if (isset($_GET['flagged']) && ($_GET['flagged'] > 0) && ($_GET['flagged'] == $comment['id'])) {
+                ?>
+                <p>Merci d'avoir signalé ce commentaire !</p>
+                <?php
+            } else {
+                ?>
+                <p><a href="index.php?action=flagComment&amp;commentId=<?= $comment['id'] ?>&amp;postId=<?= $post['id'] ?>">signaler ce commentaire</a></p>
+                <?php
+            }
+
         }
         ?>
         </div>

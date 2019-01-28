@@ -30,10 +30,10 @@ function addComment($postId, $author, $comment)
 }
 
 // ------------ Fonction flag comment ----------------
-// function addFlag($commentId, $postId, $isFlagged)
-// {
-//     $commentManager = new OpenClassrooms\P4\Model\CommentManager();
-//     $commentManager->flagComment($postId, $isFlagged);
-//     header('Location: index.php?action=post&id=' . $postId . '&flagged=' . $commentId);
+function addFlag($commentId, $postId)
+{
+    $commentManager = new OpenClassrooms\P4\Model\CommentManager();
+    $commentManager->flagComment($commentId);
+    header('Location: index.php?action=post&id=' . $postId . '&flagged=' . $commentId);
     
-// }
+}
