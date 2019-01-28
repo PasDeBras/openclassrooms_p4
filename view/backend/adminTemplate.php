@@ -20,7 +20,7 @@
             <nav>
 				<ul class="menu_admin">
                     <li><a href="#admin_overview">Overview</a></li>
-					<li><a href="#post_create">Nouveau billet</a></li>
+					<li><a href="index.php?action=adminEdit">Nouveau billet</a></li>
 					<li><a href="#post_edit">Modifier un billet</a></li>
 					<li><a href="#comment_manage">Commentaires</a></li>
 				</ul>
