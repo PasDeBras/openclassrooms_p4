@@ -3,12 +3,12 @@
 try { 
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'listPosts') {
-            require('controller/allPostsController.php');
+            require('controller/userOverviewController.php');
             listPosts();
         }
         elseif ($_GET['action'] == 'post') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                require('controller/singlePostController.php');
+                require('controller/userPostController.php');
                 post();
             }
             else {
@@ -18,7 +18,7 @@ try {
         elseif ($_GET['action'] == 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-                    require('controller/singlePostController.php');
+                    require('controller/userPostController.php');
                     addComment($_GET['id'], $_POST['author'], $_POST['comment']);
                 }
                 else {
@@ -33,7 +33,7 @@ try {
         elseif ($_GET['action'] == 'flagComment') {
             if (isset($_GET['commentId']) && $_GET['commentId'] > 0) {
                 if (isset($_GET['postId']) && $_GET['postId'] > 0) {
-                    require('controller/singlePostController.php');
+                    require('controller/userPostController.php');
                     addFlag($_GET['commentId'], $_GET['postId']);
                 } else {
                     throw new Exception('Erreur : identifiant du billet non-renseigné !');
@@ -53,7 +53,7 @@ try {
         }
     }
     else {
-        require('controller/allPostsController.php');
+        require('controller/userOverviewController.php');
         listPosts();
     }
 }

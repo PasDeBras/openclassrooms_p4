@@ -8,5 +8,5 @@ function listPosts()
     $postManager = new OpenClassrooms\P4\Model\PostManager(); 
     $posts = $postManager->getPosts(); 
 
-    require('view/frontend/listPostsView.php');
+    require('view/frontend/overView.php');
 }
