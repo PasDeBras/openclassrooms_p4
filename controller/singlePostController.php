@@ -4,14 +4,6 @@
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 
-function listPosts()
-{
-    $postManager = new OpenClassrooms\P4\Model\PostManager(); 
-    $posts = $postManager->getPosts(); 
-
-    require('view/frontend/listPostsView.php');
-}
-
 function post()
 {
     $postManager = new OpenClassrooms\P4\Model\PostManager();
@@ -36,3 +28,12 @@ function addComment($postId, $author, $comment)
         header('Location: index.php?action=post&id=' . $postId);
     }
 }
+
+// ------------ Fonction flag comment ----------------
+// function addFlag($commentId, $postId, $isFlagged)
+// {
+//     $commentManager = new OpenClassrooms\P4\Model\CommentManager();
+//     $commentManager->flagComment($postId, $isFlagged);
+//     header('Location: index.php?action=post&id=' . $postId . '&flagged=' . $commentId);
+    
+// }

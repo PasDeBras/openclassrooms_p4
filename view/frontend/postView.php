@@ -38,6 +38,7 @@
         ?>
             <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
             <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+            <p><a href="index.php?action=flagComment&amp;commentId=<?= $comment['id'] ?>&amp;postId=<?= $post['id'] ?>">signaler ce commentaire</a></p>
         <?php
         }
         ?>

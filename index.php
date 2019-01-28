@@ -1,13 +1,14 @@
 <?php
-require('controller/frontend.php');
 
 try { // On essaie de faire des choses
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'listPosts') {
+            require('controller/allPostsController.php');
             listPosts();
         }
         elseif ($_GET['action'] == 'post') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
+                require('controller/singlePostController.php');
                 post();
             }
             else {
@@ -18,6 +19,7 @@ try { // On essaie de faire des choses
         elseif ($_GET['action'] == 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
+                    require('controller/singlePostController.php');
                     addComment($_GET['id'], $_POST['author'], $_POST['comment']);
                 }
                 else {
@@ -30,8 +32,25 @@ try { // On essaie de faire des choses
                 throw new Exception('Erreur : aucun identifiant de billet envoyé');
             }
         }
+        // ------------ Fonction flag comment ----------------
+        // elseif ($_GET['action'] == 'flagComment') {
+        //     if (isset($_GET['commentId']) && $_GET['commentId'] > 0) {
+        //         if (isset($_GET['postId']) && $_GET['postId'] > 0) {
+        //             if (flagCheck($_GET['commentId']) === TRUE) {
+        //                 addFlag($_GET['commentId'], $_GET['postId'], TRUE);
+        //             } else {
+        //                 addFlag($_GET['commentId'], $_GET['postId'], FALSE);
+        //             }
+        //         } else {
+        //             throw new Exception('Erreur : identifiant du billet non-renseigné !');
+        //         }
+        //     } else {
+        //         throw new Exception('Erreur : identifiant du commentaire non-renseigné !');
+        //     }
+        // }
     }
     else {
+        require('controller/allPostsController.php');
         listPosts();
     }
 }
