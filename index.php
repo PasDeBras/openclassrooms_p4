@@ -1,6 +1,6 @@
 <?php
 
-try { // On essaie de faire des choses
+try { 
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'listPosts') {
             require('controller/allPostsController.php');
@@ -12,7 +12,6 @@ try { // On essaie de faire des choses
                 post();
             }
             else {
-                // Erreur donc exception, envoyée au catch
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         }
@@ -23,12 +22,10 @@ try { // On essaie de faire des choses
                     addComment($_GET['id'], $_POST['author'], $_POST['comment']);
                 }
                 else {
-                    // Autre erreur
                     throw new Exception('Erreur : tous les champs ne sont pas remplis !');
                 }
             }
             else {
-                // Autre erreur
                 throw new Exception('Erreur : aucun identifiant de billet envoyé');
             }
         }
@@ -45,9 +42,14 @@ try { // On essaie de faire des choses
                 throw new Exception('Erreur : identifiant du commentaire non-renseigné !');
             }
         }
+        // ------------ Admin login ----------------
         elseif ($_GET['action'] == 'secure') {
             require('controller/secureController.php');
             adminAccess();
+        }
+        elseif ($_GET['action'] == 'admin') {
+            require('controller/adminOverviewController.php');
+            adminOverview();
         }
     }
     else {
