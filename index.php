@@ -45,6 +45,10 @@ try { // On essaie de faire des choses
                 throw new Exception('Erreur : identifiant du commentaire non-renseigné !');
             }
         }
+        elseif ($_GET['action'] == 'secure') {
+            require('controller/secureController.php');
+            adminAccess();
+        }
     }
     else {
         require('controller/allPostsController.php');
