@@ -7,7 +7,19 @@
     </head>
         
     <body>
+        <header id="top">
+			<p><img src="css/media/images/logo.png" alt="Logo Blog" id="logo"></p>
+			<nav>
+				<ul class="menu_gobal">
+					<li><a href="#blog">Blog</a></li>
+					<li><a href="#about">A propos</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</nav>
+		</header>
+
         <?= $content ?>
+
     </body>
 
     <footer>
