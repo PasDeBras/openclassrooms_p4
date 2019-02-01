@@ -3,7 +3,8 @@
     <head>
         <meta charset="utf-8" />
         <title><?= $title ?></title>
-        <link href="public/css/style.css" rel="stylesheet" /> 
+        <link href="public/css/style.css" rel="stylesheet" />
+         
     </head>
         
     <body>
@@ -28,10 +29,14 @@
 		</header>
 
         <?= $content ?>
-
+        
+        
+        <footer>
+            <p>placeholder footer</p>
+        </footer>
+        <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=kn0ulpi8u0bpnya81y4ca1vh9dzza82qdhb8e3ti1o4bcp9b"></script> 
+        <script> tinymce.init({ selector:'textarea', forced_root_block : '', force_br_newlines : true, force_p_newlines : false, }); </script>
     </body>
 
-    <footer>
-        <p>placeholder footer</p>
-    </footer>
+    
 </html>
