@@ -51,9 +51,14 @@ try {
             require('controller/adminOverviewController.php');
             adminOverview();
         }
+        // ------------ Admin new post & edits ----------------
         elseif ($_GET['action'] == 'adminEdit') {
             require('controller/adminPostEditorController.php');
             postEditor();
+        }
+        elseif ($_GET['action'] == 'addPost') {
+            require('controller/adminPostEditorController.php');
+            newPost($_POST['title'], $_POST['article']);
         }
     }
     else {

@@ -35,7 +35,7 @@
             <p>placeholder footer</p>
         </footer>
         <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=kn0ulpi8u0bpnya81y4ca1vh9dzza82qdhb8e3ti1o4bcp9b"></script> 
-        <script> tinymce.init({ selector:'textarea', forced_root_block : '', force_br_newlines : true, force_p_newlines : false, }); </script>
+        <script src="public/js/tinyMCE.js"></script>
     </body>
 
     
