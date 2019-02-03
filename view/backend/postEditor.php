@@ -5,11 +5,11 @@
 <form action="index.php?action=addPost" method="post">
     <div>
         <label for="title">Title :</label><br />
-        <textarea id="editable_title" name="title"></textarea>
+        <textarea id="editable_title" name="title"><?php $originalTitle; ?></textarea>
     </div>
     <div>
         <label for="article">Article</label><br />
-        <textarea id="editable_body" name="article"></textarea>
+        <textarea id="editable_body" name="article"><?php $originalArticle; ?></textarea>
     </div>
 </form>
 

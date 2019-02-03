@@ -7,13 +7,16 @@ function postEditor() {
 }
 
 function newPost($title, $article) {
-    $postManager = new OpenClassrooms\P4\Model\PostManager();
-    $affectedLines = $postManager->postPost($title, $article);
-    if ($affectedLines === false) {
+    if (!empty($title) && !empty($article)) {
+        $postManager = new OpenClassrooms\P4\Model\PostManager();
+        $postManager->postPost($title, $article); 
+        header('Location: index.php');
+    } else {
         throw new Exception('Impossible d\'ajouter l\'article !');
     }
-    else {
-        header('Location: index.php');
-    }
+}
+
+function editPost(){
+    
 }
 

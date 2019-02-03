@@ -1,20 +1,25 @@
 // Editor block
 tinymce.init({
-    selector:'#editable_body', 
+    selector:'#editable_body',
     forced_root_block : '', 
     force_br_newlines : true, 
     force_p_newlines : false,
     plugins: "save",
-    menubar: true,
-    toolbar: "save",
-    height : 500
+    toolbar: [
+        'bold italic underline strikethrough | alignleft aligncenter alignright | alignjustify | styleselect formatselect fontselect fontsizeselect | bullist numlist | outdent indent | blockquote | undo redo | removeformat',
+        'save'
+      ],
+    height : 500,
+    branding: false
 }); 
 
-// Title block
+// Title
 tinymce.init({
     selector: '#editable_title',
+    forced_root_block : '', 
     inline: false,
     menubar: false,
     toolbar: false,
-    height : 10
+    height : 10,
+    branding: false
 });
