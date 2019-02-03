@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 try { 
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'listPosts') {
@@ -47,18 +47,31 @@ try {
             require('controller/secureController.php');
             adminAccess();
         }
+        elseif ($_GET['action'] == 'disconnect') {
+            require('controller/secureController.php');
+            adminDisconnect();
+        }
         elseif ($_GET['action'] == 'admin') {
             require('controller/adminOverviewController.php');
+            $_SESSION['adminAccess'] = 'admin';
             adminOverview();
         }
         // ------------ Admin new post & edits ----------------
         elseif ($_GET['action'] == 'adminEdit') {
-            require('controller/adminPostEditorController.php');
-            postEditor();
+            if ($_SESSION['adminAccess'] == 'admin') {
+                require('controller/adminPostEditorController.php');
+                postEditor();
+            } else {
+                throw new Exception('Accès refusé.');
+            }
         }
         elseif ($_GET['action'] == 'addPost') {
-            require('controller/adminPostEditorController.php');
-            newPost($_POST['title'], $_POST['article']);
+            if ($_SESSION['adminAccess'] == 'admin') {
+                require('controller/adminPostEditorController.php');
+                newPost($_POST['title'], $_POST['article']);
+            } else {
+                throw new Exception('Accès refusé.');
+            }
         }
     }
     else {
