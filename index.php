@@ -57,18 +57,40 @@ try {
             adminOverview();
         }
         // ------------ Admin new post & edits ----------------
-        elseif ($_GET['action'] == 'adminEdit') {
+        elseif ($_GET['action'] == 'admin_NewPost') {
             if ($_SESSION['adminAccess'] == 'admin') {
                 require('controller/adminPostEditorController.php');
-                postEditor();
+                postEditor_New();
             } else {
                 throw new Exception('Accès refusé.');
             }
         }
-        elseif ($_GET['action'] == 'addPost') {
+        elseif ($_GET['action'] == 'admin_SendNewPost') {
             if ($_SESSION['adminAccess'] == 'admin') {
                 require('controller/adminPostEditorController.php');
-                newPost($_POST['title'], $_POST['article']);
+                postEditor_SendNew($_POST['title'], $_POST['article']);
+                adminOverview();
+            } else {
+                throw new Exception('Accès refusé.');
+            }
+        }
+        elseif ($_GET['action'] == 'admin_EditPost') {
+            if ($_SESSION['adminAccess'] == 'admin') {
+                if (isset($_GET['id']) && $_GET['id'] > 0){
+                    require('controller/adminPostEditorController.php');
+                    postEditor_Edit($_GET['id']);
+                } else {
+                    throw new Exception('Erreur : identifiant du billet non-renseigné !');
+                }
+            } else {
+                throw new Exception('Accès refusé.');
+            }
+        }
+        elseif ($_GET['action'] == 'admin_SendEditedPost') {
+            if ($_SESSION['adminAccess'] == 'admin') {
+                require('controller/adminPostEditorController.php');
+                postEditor_SendEdited($_GET['id'], $_POST['title'], $_POST['article']);
+                adminOverview();
             } else {
                 throw new Exception('Accès refusé.');
             }

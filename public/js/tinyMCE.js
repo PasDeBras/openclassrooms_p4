@@ -1,7 +1,7 @@
 // Editor block
 tinymce.init({
     selector:'#editable_body',
-    forced_root_block : '', 
+    forced_root_block : 'p', 
     force_br_newlines : true, 
     force_p_newlines : false,
     plugins: "save",
