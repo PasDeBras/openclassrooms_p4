@@ -16,7 +16,7 @@ while ($data = $posts->fetch())
         </h3>
         
         <p>
-            <?= nl2br(htmlspecialchars($data['content'])) ?>
+            <?= htmlspecialchars_decode(nl2br(html_entity_decode($data['content']))) ?>
             <br />
             <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Comments</a></em> 
         </p>
