@@ -5,7 +5,7 @@
 <form action="index.php?action=addPost" method="post">
     <div>
         <label for="title">Title :</label><br />
-        <textarea id="editable_title" name="title"><?php $originalTitle; ?></textarea>
+        <input type= "text" id="editable_title" name="title"/> <?php//$originalTitle;?>
     </div>
     <div>
         <label for="article">Article</label><br />

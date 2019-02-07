@@ -13,7 +13,7 @@ tinymce.init({
     branding: false
 }); 
 
-// Title
+/* // Title
 tinymce.init({
     selector: '#editable_title',
     forced_root_block : '', 
@@ -22,4 +22,4 @@ tinymce.init({
     toolbar: false,
     height : 10,
     branding: false
-});
+}); */
