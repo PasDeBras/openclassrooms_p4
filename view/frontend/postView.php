@@ -1,7 +1,7 @@
-<?php $title = 'PAGE TITLE PH'; ?>
+<?php $title = 'Blog de Jean-Ecrivain'; ?>
 
 <?php ob_start(); ?>
-        <h1>Title PH</h1>
+        <h1>Article</h1>
         <p><a href="index.php">Retour à la liste des billets</a></p>
 
         <div class="news">

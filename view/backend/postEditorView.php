@@ -1,4 +1,4 @@
-<?php $title = 'Admin editor PH'; ?>
+<?php $title = 'Editeur de post'; ?>
 
 <?php ob_start(); ?>
 

@@ -1,12 +1,14 @@
 <?php
 session_start();
-try { 
-    if (isset($_GET['action'])) {
+try {
+    // ----------------------------------------------------------- User -----------------------------------------------------------
+    // Navigation ---
+    if (isset($_GET['action'])) { // Access blog view with all posts
         if ($_GET['action'] == 'listPosts') {
             require('controller/userOverviewController.php');
             listPosts();
         }
-        elseif ($_GET['action'] == 'post') {
+        elseif ($_GET['action'] == 'post') { // Access single post view w/ comments
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 require('controller/userPostController.php');
                 post();
@@ -15,7 +17,8 @@ try {
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         }
-        elseif ($_GET['action'] == 'addComment') {
+        // Comments ---
+        elseif ($_GET['action'] == 'addComment') { // Adds comment to ID'd blog post
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
                     require('controller/userPostController.php');
@@ -29,8 +32,7 @@ try {
                 throw new Exception('Erreur : aucun identifiant de billet envoyé');
             }
         }
-        // ------------ Fonction flag comment ----------------
-        elseif ($_GET['action'] == 'flagComment') {
+        elseif ($_GET['action'] == 'flagComment') { // Flags comment for admin review
             if (isset($_GET['commentId']) && $_GET['commentId'] > 0) {
                 if (isset($_GET['postId']) && $_GET['postId'] > 0) {
                     require('controller/userPostController.php');
@@ -42,22 +44,23 @@ try {
                 throw new Exception('Erreur : identifiant du commentaire non-renseigné !');
             }
         }
-        // ------------ Admin login ----------------
-        elseif ($_GET['action'] == 'secure') {
+        // ---------------------------------------------------------- ADMIN --------------------------------------------------------
+        // Authentification ---
+        elseif ($_GET['action'] == 'secure') { // Access login view 
             require('controller/secureController.php');
             adminAccess();
         }
-        elseif ($_GET['action'] == 'disconnect') {
+        elseif ($_GET['action'] == 'disconnect') { // Disconnect admin
             require('controller/secureController.php');
             adminDisconnect();
         }
-        elseif ($_GET['action'] == 'admin') {
+        elseif ($_GET['action'] == 'admin') { // Log in admin and access admin blog view w/ mod tools
             require('controller/adminOverviewController.php');
             $_SESSION['adminAccess'] = 'admin';
             adminOverview();
         }
-        // ------------ Admin new post & edits ----------------
-        elseif ($_GET['action'] == 'admin_NewPost') {
+        // Blog post editor ---
+        elseif ($_GET['action'] == 'admin_NewPost') { // Access new post editor view
             if ($_SESSION['adminAccess'] == 'admin') {
                 require('controller/adminPostEditorController.php');
                 postEditor_New();
@@ -65,7 +68,7 @@ try {
                 throw new Exception('Accès refusé.');
             }
         }
-        elseif ($_GET['action'] == 'admin_SendNewPost') {
+        elseif ($_GET['action'] == 'admin_SendNewPost') { // Insert new post into db
             if ($_SESSION['adminAccess'] == 'admin') {
                 require('controller/adminPostEditorController.php');
                 postEditor_SendNew($_POST['title'], $_POST['article']);
@@ -74,7 +77,7 @@ try {
                 throw new Exception('Accès refusé.');
             }
         }
-        elseif ($_GET['action'] == 'admin_EditPost') {
+        elseif ($_GET['action'] == 'admin_EditPost') { // Access editor loaded with desired post to edit
             if ($_SESSION['adminAccess'] == 'admin') {
                 if (isset($_GET['id']) && $_GET['id'] > 0){
                     require('controller/adminPostEditorController.php');
@@ -86,13 +89,43 @@ try {
                 throw new Exception('Accès refusé.');
             }
         }
-        elseif ($_GET['action'] == 'admin_SendEditedPost') {
+        elseif ($_GET['action'] == 'admin_SendEditedPost') { // Update edited post unto db
             if ($_SESSION['adminAccess'] == 'admin') {
                 require('controller/adminPostEditorController.php');
                 postEditor_SendEdited($_GET['id'], $_POST['title'], $_POST['article']);
                 adminOverview();
             } else {
                 throw new Exception('Accès refusé.');
+            }
+        }
+        elseif ($_GET['action'] == 'admin_CommentModerator') { // Access moderation pending comments view
+            if ($_SESSION['adminAccess'] == 'admin') {
+                require('controller/commentModeratorController.php');
+                listFlaggedComments();
+            } else {
+                throw new Exception('Accès refusé.');
+            }
+        }
+        elseif ($_GET['action'] == 'deleteComment') { // Delete comment from db
+            if (isset($_GET['commentId']) && $_GET['commentId'] > 0) {
+                if ($_SESSION['adminAccess'] == 'admin') {
+                    require('controller/commentModeratorController.php');
+                    commentDeletion($_GET['commentId']);
+                } else {
+                    throw new Exception('Accès refusé.');
+                }
+            } else {
+                throw new Exception('ID non reconnu.');
+            }
+        }
+        elseif ($_GET['action'] == 'unflagComment') { // unflag Comment
+            if (isset($_GET['commentId']) && $_GET['commentId'] > 0) {
+                if ($_SESSION['adminAccess'] == 'admin') {
+                    require('controller/commentModeratorController.php');
+                    commentUnflagging($_GET['commentId']);
+                } else {
+                    throw new Exception('Accès refusé.');
+                } 
             }
         }
     }

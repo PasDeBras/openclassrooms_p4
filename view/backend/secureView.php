@@ -1,4 +1,4 @@
-<?php $title = 'Admin overview PH'; ?>
+<?php $title = 'Connexion'; ?>
 
 <?php ob_start(); ?>
 <?php

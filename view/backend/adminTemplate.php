@@ -21,7 +21,7 @@
             <nav>
 				<ul class="menu_admin">
 					<li><a href="index.php?action=admin_NewPost">Nouveau billet</a></li>
-					<li><a href="#comment_manage">Commentaires</a></li>
+					<li><a href="index.php?action=admin_CommentModerator">Commentaires</a></li>
 				</ul>
 			</nav>
 		</header>

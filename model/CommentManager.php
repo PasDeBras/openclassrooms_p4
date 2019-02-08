@@ -23,6 +23,17 @@ class CommentManager extends Manager
         return $affectedLines;
     }
 
+    public function deleteComment($commentId)
+    {
+        $db = $this->dbConnect();
+
+        $comment = $db->prepare('DELETE FROM `comments` WHERE `id` = ?');
+        $deleteComment = $comment->execute(array($commentId));
+
+        
+        return $deleteComment;
+    }
+
     public function flagComment($commentId)
     {
         $db = $this->dbConnect();
@@ -32,6 +43,25 @@ class CommentManager extends Manager
 
         
         return $flagged;
+    }
+
+    public function unflagComment($commentId)
+    {
+        $db = $this->dbConnect();
+
+        $unflag = $db->prepare('UPDATE comments SET flagged = 0 WHERE ID = ?');
+        $unflagged = $unflag->execute(array($commentId));
+
+        
+        return $unflagged;
+    }
+
+    public function getFlaggedComments()
+    {
+        $db = $this->dbConnect();
+        $req = $db->query('SELECT id, flagged, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE flagged > 0 ORDER BY flagged DESC');
+
+        return $req;
     }
 
 }

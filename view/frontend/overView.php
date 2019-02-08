@@ -1,8 +1,8 @@
-<?php $title = 'PAGE TITLE PH'; ?>
+<?php $title = 'Blog de Jean-Ecrivain'; ?>
 
 <?php ob_start(); ?>
-<h1>Title</h1>
-<p>something something</p>
+<h1>Blog</h1>
+<p>Tout les posts :</p>
 
 
 <?php

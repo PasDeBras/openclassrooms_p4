@@ -4,11 +4,11 @@
 
 <form action="index.php?action=admin_SendNewPost" method="post">
     <div>
-        <label for="title">Title :</label><br />
+        <label for="title">Titre de l'article :</label><br />
         <input type= "text" id="editable_title" name="title"/>
     </div>
     <div>
-        <label for="article">Article</label><br />
+        <label for="article">Article :</label><br />
         <textarea id="editable_body" name="article"></textarea>
     </div>
 </form>
