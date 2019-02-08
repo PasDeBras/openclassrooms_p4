@@ -8,7 +8,7 @@
         <input type= "text" id="editable_title" name="title" placeholder="<?= $post['title']?>"/><!-- Marche -->
     </div>
     <div>
-        <label for="article">Article</label><br />
+        <label for="article">Article -</label><a href="index.php?action=admin_DeletePost&amp;postId=<?= $post['id']?>">[supprimer]</a><br />
         <textarea id="editable_body" name="article"><?= $post['content']?></textarea>
     </div>
 </form>

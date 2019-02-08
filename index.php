@@ -98,6 +98,14 @@ try {
                 throw new Exception('Accès refusé.');
             }
         }
+        elseif ($_GET['action'] == 'admin_DeletePost') { // Delete post from db
+            if ($_SESSION['adminAccess'] == 'admin') {
+                require('controller/adminPostEditorController.php');
+                postEditor_Delete($_GET['postId']);
+            } else {
+                throw new Exception('Accès refusé.');
+            }
+        }
         elseif ($_GET['action'] == 'admin_CommentModerator') { // Access moderation pending comments view
             if ($_SESSION['adminAccess'] == 'admin') {
                 require('controller/commentModeratorController.php');
