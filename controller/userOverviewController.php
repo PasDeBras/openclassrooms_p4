@@ -3,7 +3,7 @@
 // Chargement des classes
 require_once('model/PostManager.php');
 
-function listPosts()
+function userOverview()
 {
     $postManager = new OpenClassrooms\P4\Model\PostManager(); 
     $posts = $postManager->getPosts(); 

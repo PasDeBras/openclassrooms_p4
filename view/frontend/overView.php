@@ -18,7 +18,7 @@ while ($data = $posts->fetch())
         <p>
             <?= htmlspecialchars_decode(nl2br(html_entity_decode($data['content']))) ?>
             <br />
-            <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Comments</a></em> 
+            <em><a href="index.php?action=userPostView&amp;id=<?= $data['id'] ?>">Comments</a></em> 
         </p>
     </div>
 <?php

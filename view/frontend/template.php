@@ -11,7 +11,7 @@
 			<p><img src="css/media/images/logo.png" alt="Logo Blog" id="logo"></p>
 			<nav>
 				<ul class="menu_gobal">
-					<li><a href="index.php">Blog</a></li>
+					<li><a href="index.php?action=userOverview">Blog</a></li>
 					<li><a href="#about">A propos</a></li>
 					<li><a href="#contact">Contact</a></li>
                     <li><a href="index.php?action=secure">Connexion</a></li>

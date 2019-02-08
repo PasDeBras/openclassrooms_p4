@@ -4,11 +4,11 @@ try {
     // ----------------------------------------------------------- User -----------------------------------------------------------
     // Navigation ---
     if (isset($_GET['action'])) { // Access blog view with all posts
-        if ($_GET['action'] == 'listPosts') {
+        if ($_GET['action'] == 'userOverview') {
             require('controller/userOverviewController.php');
-            listPosts();
+            userOverview();
         }
-        elseif ($_GET['action'] == 'post') { // Access single post view w/ comments
+        elseif ($_GET['action'] == 'userPostView') { // Access single post view w/ comments
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 require('controller/userPostController.php');
                 post();
@@ -139,7 +139,7 @@ try {
     }
     else {
         require('controller/userOverviewController.php');
-        listPosts();
+        userOverview();
     }
 }
 catch(Exception $e) {
