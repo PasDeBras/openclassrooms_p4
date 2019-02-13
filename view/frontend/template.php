@@ -23,11 +23,13 @@
             <div id="content">
                 <?= $content ?>
             </div>
-         </div>
+            
+        </div>
         
         <footer>
                 <p>placeholder footer</p>
         </footer>
-        
+        <button onclick="backToTop()" id="backToTopButton" title="Remonter la page">^</button>
+        <script src="public/js/backToTop.js"></script>
     </body>
 </html>

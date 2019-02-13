@@ -9,7 +9,6 @@ body{
     display: flex;
 	justify-content: space-between;
     width: 100%;
-    
 }
 #logo{
     display: block;
@@ -19,13 +18,13 @@ body{
     padding-right: 2em;
     padding-left: 1em;
 }
-.menu_gobal{
+.menu_gobal, .menu_admin{
     display: flex;
     flex-direction: column;
     list-style-type: none;
     padding-left: 8%;
 }
-.menu_gobal a { 
+.menu_gobal a, .menu_admin a { 
     height: auto;
     font-size: 1.5em;
     font-family: "Courier new";
@@ -41,7 +40,24 @@ body{
     margin-top: 1em;
     background-color: white;
 }
-
+#backToTopButton {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    right: 5px;
+    z-index: 10;
+    border: none;
+    outline: none;
+    background-color: grey;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 18px;
+  }
+  #backToTopButton:hover {
+    background-color: white;
+    color: grey;
+  }
 
 
 
