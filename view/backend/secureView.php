@@ -3,7 +3,6 @@
 <?php ob_start(); ?>
 <div id="breadcrumbs"><a href="index.php?action=admin">Acceuil</a>/<a href="index.php?action=secure">Login</a></div>
 <?php
-
 if (!isset($_POST['password']) OR $_POST['password'] != "admin")
 {
     ?>
