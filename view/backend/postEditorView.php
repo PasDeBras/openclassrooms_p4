@@ -1,6 +1,7 @@
 <?php $title = 'Editeur de post'; ?>
 
 <?php ob_start(); ?>
+<div id="breadcrumbs"><a href="index.php?action=admin">Acceuil (Admin)</a>/Editeur (Modification)</div>
 
 <form action="index.php?action=admin_SendEditedPost&amp;id=<?=$post['id']?>" method="post">
     <div>

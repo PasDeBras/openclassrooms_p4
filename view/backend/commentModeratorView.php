@@ -1,6 +1,7 @@
 <?php $title = 'Moderation'; ?>
 
 <?php ob_start(); ?>
+<div id="breadcrumbs"><a href="index.php?action=admin">Acceuil (Admin)</a>/Moderateur</div>
 <h1>Commentaires en attente de modération</h1>
 <p>Ces commentaires ont été signalés par vos lecteurs, ils sont classés du plus grand nombre de signalements au plus petit.</p>
 <table style="width:100%">
@@ -22,7 +23,7 @@
             <th><?= nl2br(htmlspecialchars($comment['comment'])) ?></th>
             <th><?= $comment['flagged'] ?></th>
             <th><a href="index.php?action=deleteComment&amp;commentId=<?= $comment['id'] ?>">supprimer ce commentaire</a></th>
-            <th><a href="index.php?action=unflagComment&amp;commentId=<?= $comment['id'] ?>">unflag ce commentaire</a></th>
+            <th><a href="index.php?action=unflagComment&amp;commentId=<?= $comment['id'] ?>">valider ce commentaire</a></th>
         </tr>
         <?php
     }

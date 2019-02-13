@@ -1,6 +1,7 @@
 <?php $title = 'Blog de Jean-Ecrivain'; ?>
 
 <?php ob_start(); ?>
+<div id="breadcrumbs"><a href="index.php?action=admin">Acceuil (Admin)</a>/</div>
 <h1>Blog</h1>
 <p>Tout les posts :</p>
 

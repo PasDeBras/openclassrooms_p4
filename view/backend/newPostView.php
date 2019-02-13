@@ -1,6 +1,7 @@
 <?php $title = 'Admin NEW POST PH'; ?>
 
 <?php ob_start(); ?>
+<div id="breadcrumbs"><a href="index.php?action=admin">Acceuil (Admin)</a>/Editeur</div>
 
 <form action="index.php?action=admin_SendNewPost" method="post">
     <div>

@@ -1,6 +1,7 @@
 <?php $title = 'Blog de Jean-Ecrivain'; ?>
 
 <?php ob_start(); ?>
+        <div id="breadcrumbs"><a href="index.php">Acceuil</a>/<a href="index.php">Articles</a>/<?= htmlspecialchars($post['title']) ?></div>
         <h1>Article</h1>
         <p><a href="index.php">Retour à la liste des billets</a></p>
 
