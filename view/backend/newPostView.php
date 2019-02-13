@@ -14,10 +14,7 @@
     </div>
 </form>
 
-
-
 <?php $content = ob_get_clean(); ?>
-
 
 <?php require('view/backend/adminTemplate.php'); ?>
 
