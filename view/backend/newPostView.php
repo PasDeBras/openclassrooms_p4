@@ -1,4 +1,4 @@
-<?php $title = 'Admin NEW POST PH'; ?>
+<?php $title = 'Nouveau chapitre - forteroche.fr'; ?>
 
 <?php ob_start(); ?>
 <div id="breadcrumbs"><a href="index.php?action=admin">Acceuil (Admin)</a>/Editeur</div>

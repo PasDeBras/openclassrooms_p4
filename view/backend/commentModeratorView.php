@@ -2,10 +2,11 @@
 
 <?php ob_start(); ?>
 <div id="breadcrumbs"><a href="index.php?action=admin">Acceuil (Admin)</a>/Moderateur</div>
-<h1>Commentaires en attente de modération</h1>
-<p>Ces commentaires ont été signalés par vos lecteurs, ils sont classés du plus grand nombre de signalements au plus petit.</p>
-<table style="width:100%">
-    <tr>
+
+<h1 id="commentModerator_Title">Commentaires en attente de modération</h1>
+<p id="commentModerator_Notice">Ces commentaires ont été signalés par vos lecteurs, ils sont classés du plus grand nombre de signalements au plus petit.</p>
+<table id="commentModerator_Table" style="width:100%">
+    <tr id="commentModerator_Table_Labels">
         <th>ID</th>
         <th>Auteur</th> 
         <th>Commentaire</th>
@@ -17,21 +18,19 @@
     while ($comment = $comments->fetch())
     {
         ?>
-        <tr>
-            <th><?= $comment['id'] ?></th>
-            <th><?= htmlspecialchars($comment['author']) ?></th> 
-            <th><?= nl2br(htmlspecialchars($comment['comment'])) ?></th>
-            <th><?= $comment['flagged'] ?></th>
-            <th><a href="index.php?action=deleteComment&amp;commentId=<?= $comment['id'] ?>">supprimer ce commentaire</a></th>
-            <th><a href="index.php?action=unflagComment&amp;commentId=<?= $comment['id'] ?>">valider ce commentaire</a></th>
+        <tr class="commentModerator_Table_Items">
+            <th class="commentModerator_Table_Items_Id"><?= $comment['id'] ?></th>
+            <th class="commentModerator_Table_Items_Author"><?= htmlspecialchars($comment['author']) ?></th> 
+            <th class="commentModerator_Table_Items_Comment"><?= nl2br(htmlspecialchars($comment['comment'])) ?></th>
+            <th class="commentModerator_Table_Items_Flagged"><?= $comment['flagged'] ?></th>
+            <th class="commentModerator_Table_Items_Delete"><a href="index.php?action=deleteComment&amp;commentId=<?= $comment['id'] ?>">supprimer ce commentaire</a></th>
+            <th class="commentModerator_Table_Items_UnFlag"><a href="index.php?action=unflagComment&amp;commentId=<?= $comment['id'] ?>">valider ce commentaire</a></th>
         </tr>
         <?php
     }
     ?>
 </table>        
         
-
 <?php $content = ob_get_clean(); ?>
-
 
 <?php require('view/backend/adminTemplate.php'); ?>
