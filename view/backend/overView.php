@@ -11,7 +11,7 @@
 ?>
     <div class="book_chapterDiv">
         <h3 class="book_chapterDiv_Title">
-            <?= htmlspecialchars($data['title']) ?>
+            <a href="index.php?action=userPostView&amp;id=<?= $data['id'] ?>"><?= htmlspecialchars($data['title']) ?></a>
             <em>le <?= $data['creation_date_fr'] ?></em>
         </h3>
         
