@@ -32,6 +32,12 @@ body{
     color: white;
     text-decoration: none;
 }
+.menu_gobal a:hover, .menu_admin a:hover { 
+
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
 #content{
     padding-top: 1em;
     padding-left: 3em;
@@ -39,6 +45,7 @@ body{
     margin-right: 2em;
     margin-top: 1em;
     background-color: white;
+    box-shadow: 6px 6px 6px black;
 }
 #backToTopButton {
     display: none;

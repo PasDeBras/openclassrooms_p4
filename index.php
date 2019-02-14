@@ -44,6 +44,10 @@ try {
                 throw new Exception('Erreur : identifiant du commentaire non-renseigné !');
             }
         }
+        elseif ($_GET['action'] == 'about') {
+            require('controller/userAboutController.php');
+            about();
+        }
         // ---------------------------------------------------------- ADMIN --------------------------------------------------------
         // Authentification ---
         elseif ($_GET['action'] == 'secure') { // Access login view 
