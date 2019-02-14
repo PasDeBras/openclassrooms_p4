@@ -11,7 +11,7 @@
 ?>
     <div class="book_chapterDiv">
         <h3 class="book_chapterDiv_Title">
-            <a href="index.php?action=userPostView&amp;id=<?= $data['id'] ?>"><?= htmlspecialchars($data['title']) ?></a>
+            <a href="index.php?action=adminPostView&amp;id=<?= $data['id'] ?>"><?= htmlspecialchars($data['title']) ?></a>
             <em>le <?= $data['creation_date_fr'] ?></em>
         </h3>
         
@@ -20,7 +20,7 @@
             <br />
             <p class="book_chapterDiv_Content_Comments">
             <em><a href="index.php?action=admin_EditPost&amp;id=<?= $data['id'] ?>">Editer</a></em>
-            <em><a href="index.php?action=userPostView&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
+            <em><a href="index.php?action=adminPostView&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
             </p> 
         </div>
     </div>

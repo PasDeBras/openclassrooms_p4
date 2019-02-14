@@ -59,6 +59,19 @@ try {
             $_SESSION['adminAccess'] = 'admin';
             adminOverview();
         }
+        elseif ($_GET['action'] == 'adminPostView') { // Access admin post view w/ comments
+            if ($_SESSION['adminAccess'] == 'admin') {
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    require('controller/adminPostController.php');
+                    adminPost();
+                }
+                else {
+                    throw new Exception('Aucun identifiant de billet envoyé');
+                }
+            } else {
+                throw new Exception('Accès refusé.');
+            } 
+        }
         // Blog post editor ---
         elseif ($_GET['action'] == 'admin_NewPost') { // Access new post editor view
             if ($_SESSION['adminAccess'] == 'admin') {
