@@ -16,7 +16,9 @@
         </h3>
         
         <div class="book_chapterDiv_Content">
-            <?= htmlspecialchars_decode(nl2br(html_entity_decode($data['content']))) ?>
+            <div>
+                <?= htmlspecialchars_decode(nl2br(html_entity_decode($data['content']))) ?>
+            </div>
             <br />
             <p class="book_chapterDiv_Content_Comments">
             <em><a href="index.php?action=userPostView&amp;id=<?= $data['id'] ?>">Commentaires</a></em>

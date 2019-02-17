@@ -1,5 +1,4 @@
 body{
-    
     margin-top: 0;
     margin-left: 0;
     margin-right: 0;
@@ -8,12 +7,7 @@ body{
 }
 #bloc_page{
     display: flex;
-	justify-content: space-between;
-    width: 100%;
-}
-#logo{
-    display: block;
-    margin-top: 0;
+    width: 100%
 }
 #header{
     padding-right: 2em;
@@ -21,9 +15,6 @@ body{
 }
 .menu_gobal, .menu_admin{
     display: flex;
-    flex-direction: column;
-    list-style-type: none;
-    padding-left: 8%;
 }
 .menu_gobal a, .menu_admin a { 
     height: auto;
@@ -40,13 +31,13 @@ body{
     text-decoration: none;
 }
 #content{
-    padding-top: 1em;
     padding-left: 3em;
     padding-right: 3em;
     margin-right: 2em;
     margin-top: 1em;
     background-color: white;
     box-shadow: 6px 6px 6px black;
+    
 }
 #backToTopButton {
     display: none;
@@ -67,17 +58,28 @@ body{
     color: grey;
   }
   #website_mainTitle{
-    
+    font-family: "Courier new";
   }
   #website_subTitle{
-
+    font-family: "Courier new";
   }
-  .book_chapterDiv_Title a{
+  .book_chapterDiv_Title a, #book_chapterDiv_Title{
     color: black;
     font-size: 25px;
+    font-family: "Courier new";
+
+  }
+  #book_chapterDiv_Date {
+    font-family: "Courier new";
+  }
+  .book_chapterDiv_Title, #book_chapterDiv_Title, #book_chapterDiv_Date {
+    text-align: center;
   }
   #breadcrumbs {
 
+  }
+  #secure {
+    text-align: center;
   }
   #commentModerator_Table {
     background-color: beige;
@@ -109,9 +111,29 @@ body{
     bottom: 0px;
       
   }
+  
 /* Media queries */
 @media screen and (max-width: 480px) {
-	
+    #bloc_page{
+        flex-direction: column;
+        justify-content: center;
+    }
+    #content {
+        width: 80%;
+    }
+    #logo_fat{
+        display: none;
+    }
+    #logo_skim{
+        display: none;
+        margin-top: 0;
+    }
+    .menu_gobal, .menu_admin{
+        flex-direction: row;
+        list-style-type: none;
+        padding-left: 8%;
+        justify-content: center;
+    }
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
@@ -119,5 +141,25 @@ body{
 }
 
 @media screen and (min-width: 769px) {
-    
+    #bloc_page{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    #content{
+        padding-top: 1em;
+        width: 100%;
+    }
+    #logo_fat{
+        display: block;
+        margin-top: 0;
+    }
+    #logo_skim{
+        display: none;
+        margin-top: 0;
+    }
+    .menu_gobal, .menu_admin{
+        flex-direction: column;
+        list-style-type: none;
+        padding-left: 8%;
+    }
 }

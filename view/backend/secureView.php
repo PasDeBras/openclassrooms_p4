@@ -6,13 +6,15 @@
 <?php if (!isset($_POST['password']) OR $_POST['password'] != "admin")
 {
 ?>
+<div id="secure">
     <p id="password_notice">Veuillez entrer votre mot de passe pour acceder à cette partie du site :</p>
         <form action="index.php?action=secure" method="post">
             <p>
             <input type="password" name="password" />
-            <input type="submit" value="submit" />
+            <input type="submit" value="valider" />
             </p>
         </form>
+</div>
     <?php
 }
 else

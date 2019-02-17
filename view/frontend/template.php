@@ -9,7 +9,8 @@
     <body>
         <div id="bloc_page">
             <header id="header">
-                <div id="logo"><img src="public/css/media/images/logo_fat.png" alt="Logo Blog"></div>
+                <div id="logo_fat"><img src="public/css/media/images/logo_fat.png" alt="Logo Blog"></div>
+                <div id="logo_slim"><img src="public/css/media/images/logo_skim.png" alt="Logo Blog"></div>
                 <nav>
                     <ul class="menu_gobal">
                         <li><a href="index.php?action=userOverview">Blog</a></li>
@@ -27,9 +28,9 @@
         </div>
         
         <footer>
-                <div>
-                    <p>Créé par Paul Ponnau pour OpenClassrooms dans le cadre du parcours Web Dev<br>Contact & Information: contact@paulponnau.fr.</p>
-                </div>
+            <div>
+                <p>Créé par Paul Ponnau pour OpenClassrooms dans le cadre du parcours Web Dev<br>Contact & Information: contact@paulponnau.fr.</p>
+            </div>
         </footer>
 
         <button onclick="backToTop()" id="backToTopButton" title="Remonter la page">^</button>

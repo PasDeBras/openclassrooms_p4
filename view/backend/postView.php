@@ -6,16 +6,12 @@
 
 <h1 id="website_mainTitle">Billet simple pour l'Alaska</h1>
 <h2 id="website_subTitle">Un roman épisodique par Jean Forteroche, un nouveau chapitre disponible ici, tout les vendredis :</h2>
-        
-<p><a href="index.php?action=admin">Retour à la liste des billets</a></p>
 
 <div id="book_chapterDiv">
-    <h3 id="book_chapterDiv_Title">
-        <?= htmlspecialchars($post['title']) ?>
-        <em>le <?= $post['creation_date_fr'] ?></em>
-    </h3>
+    <h3 id="book_chapterDiv_Title"><?= htmlspecialchars($post['title']) ?></h3>
+    <p id="book_chapterDiv_Date"><?= $post['creation_date_fr'] ?></p>
     <p><a href="index.php?action=admin_EditPost&amp;id=<?= $post['id'] ?>">Editer ce chapitre</a></p>
-            
+    
     <div id="book_chapterDiv_Content">
         <?= htmlspecialchars_decode(nl2br(html_entity_decode($post['content']))) ?>
     </div>
