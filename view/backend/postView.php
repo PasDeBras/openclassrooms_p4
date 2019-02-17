@@ -41,9 +41,9 @@
                 else
                 { ?>
                     <p class="commentAddFlag"><a href="index.php?action=flagComment&amp;commentId=<?= $comment['id'] ?>&amp;postId=<?= $post['id'] ?>">Signaler ce commentaire</a></p>
-                <?php }
-            } ?>
-            </div>
+                <?php } ?>
+                </div>
+                <?php } ?>
             
     </div>
 </div>

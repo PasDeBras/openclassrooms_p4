@@ -1,4 +1,5 @@
 body{
+    
     margin-top: 0;
     margin-left: 0;
     margin-right: 0;
@@ -98,9 +99,16 @@ body{
     text-align: center;
     border: 1px solid black;
   }
-
-
-
+  footer{
+    color: whitesmoke;
+    font-family: "Courier new";
+    width: 100%;
+    font-size: 1em;
+    text-align: center;
+    left: 0px;
+    bottom: 0px;
+      
+  }
 /* Media queries */
 @media screen and (max-width: 480px) {
 	

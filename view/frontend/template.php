@@ -27,8 +27,11 @@
         </div>
         
         <footer>
-                <p>placeholder footer</p>
+                <div>
+                    <p>Créé par Paul Ponnau pour OpenClassrooms dans le cadre du parcours Web Dev<br>Contact & Information: contact@paulponnau.fr.</p>
+                </div>
         </footer>
+
         <button onclick="backToTop()" id="backToTopButton" title="Remonter la page">^</button>
         <script src="public/js/backToTop.js"></script>
     </body>

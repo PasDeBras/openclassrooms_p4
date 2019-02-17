@@ -53,10 +53,12 @@
                 } else
                 { ?>
                     <p class="commentAddFlag"><a href="index.php?action=flagComment&amp;commentId=<?= $comment['id'] ?>&amp;postId=<?= $post['id'] ?>">Signaler ce commentaire</a></p>
-                <?php }
-            } ?>
+                <?php }?>
             </div>
+            <?php } ?>
+            
     </div>
+
 </div>
 
 <?php $content = ob_get_clean(); ?>
