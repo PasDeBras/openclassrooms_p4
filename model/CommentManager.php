@@ -59,7 +59,7 @@ class CommentManager extends Manager
     public function getFlaggedComments()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT id, flagged, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE flagged > 0 ORDER BY flagged DESC');
+        $req = $db->query('SELECT id, flagged, post_id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE flagged > 0 ORDER BY flagged DESC');
 
         return $req;
     }

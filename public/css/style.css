@@ -75,8 +75,28 @@ body{
     color: black;
     font-size: 25px;
   }
-  #breadcrumbs{
+  #breadcrumbs {
 
+  }
+  #commentModerator_Table {
+    background-color: beige;
+  }
+  .commentModerator_Table_Items_Delete a {
+    text-decoration: none;
+    color: red;
+  }
+  .commentModerator_Table_Items_UnFlag a {
+    text-decoration: none;
+    color: green;
+  }
+  #commentModerator_Table {
+    border-collapse: collapse;
+  }
+  #commentModerator_Table_Labels th, .commentModerator_Table_Items, td {
+    height: 25px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid black;
   }
 
 
