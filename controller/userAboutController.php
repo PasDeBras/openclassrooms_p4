@@ -1,4 +1,2 @@
 <?php
-function about() {
-    require('view/frontend/aboutView.php');
-}
+require('view/frontend/aboutView.php');

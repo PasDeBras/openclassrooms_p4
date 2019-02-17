@@ -46,17 +46,15 @@ try {
         }
         elseif ($_GET['action'] == 'about') {
             require('controller/userAboutController.php');
-            about();
         }
         // ---------------------------------------------------------- ADMIN --------------------------------------------------------
         // Authentification ---
         elseif ($_GET['action'] == 'secure') { // Access login view 
             require('controller/secureController.php');
-            adminAccess();
         }
         elseif ($_GET['action'] == 'disconnect') { // Disconnect admin
-            require('controller/secureController.php');
-            adminDisconnect();
+            session_destroy();
+            header('Location: index.php?');
         }
         elseif ($_GET['action'] == 'admin') { // Log in admin and access admin blog view w/ mod tools
             require('controller/adminOverviewController.php');
