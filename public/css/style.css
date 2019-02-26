@@ -9,9 +9,9 @@ body{
     display: flex;
     width: 100%
 }
+
 #header{
-    padding-right: 2em;
-    padding-left: 1em;
+
 }
 .menu_gobal, .menu_admin{
     display: flex;
@@ -31,10 +31,6 @@ body{
     text-decoration: none;
 }
 #content{
-    padding-left: 3em;
-    padding-right: 3em;
-    margin-right: 2em;
-    margin-top: 1em;
     background-color: white;
     box-shadow: 6px 6px 6px black;
     
@@ -109,7 +105,6 @@ body{
     text-align: center;
     left: 0px;
     bottom: 0px;
-      
   }
   
 /* Media queries */
@@ -117,27 +112,46 @@ body{
     #bloc_page{
         flex-direction: column;
         justify-content: center;
+        align-items: center;
     }
     #content {
-        width: 80%;
-    }
-    #logo_fat{
-        display: none;
-    }
-    #logo_skim{
-        display: none;
-        margin-top: 0;
+        width: 95%;
     }
     .menu_gobal, .menu_admin{
         flex-direction: row;
+        flex-wrap: nowrap;
         list-style-type: none;
-        padding-left: 8%;
-        justify-content: center;
+        justify-content: space-between;
+        padding-left: 0;
+        margin: auto;
+    }
+    .menu_gobal a, .menu_admin a {
+      margin-left: 10px;
+    }
+    #content{
+      margin-top: 0.5em;
+      padding-left: 0.5em;
+      padding-right: 0.5em;
+      background-color: white;
+      box-shadow: 6px 6px 6px black;
+      
+  }
+    #header {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    #logo {
+      
     }
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
-   
+  #bloc_page{
+    flex-direction: row;
+    justify-content: space-between;
+  } 
 }
 
 @media screen and (min-width: 769px) {
@@ -148,14 +162,6 @@ body{
     #content{
         padding-top: 1em;
         width: 100%;
-    }
-    #logo_fat{
-        display: block;
-        margin-top: 0;
-    }
-    #logo_skim{
-        display: none;
-        margin-top: 0;
     }
     .menu_gobal, .menu_admin{
         flex-direction: column;

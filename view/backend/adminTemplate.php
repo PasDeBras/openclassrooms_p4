@@ -10,12 +10,11 @@
     <body>
         <div id="bloc_page">
             <header id="header">
-                <div id="logo"><img src="public/css/media/images/logo_fat.png" alt="Logo Blog"></div>
-                <div id="logo_slim"><img src="public/css/media/images/logo_skim.png" alt="Logo Blog"></div>
+                <div id="logo"><img src="public/css/media/images/logo_skim.png" alt="Logo Blog"></div>
                 <nav>
                     <ul class="menu_gobal">
                         <li><a href="index.php?action=admin">Blog</a></li>
-                        <li><a href="index.php?action=about&amp;other=admin">A propos</a></li>
+                        <li><a href="index.php?action=about&amp;other=admin">Auteur</a></li>
                         <li><a href="#contact">Contact</a></li>
                         <li><a href="index.php?action=disconnect">Déconnexion</a></li>
                     </ul>
