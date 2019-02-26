@@ -79,6 +79,7 @@ body{
   }
   #commentModerator_Table {
     background-color: beige;
+    border-collapse: collapse;
   }
   .commentModerator_Table_Items_Delete a {
     text-decoration: none;
@@ -87,9 +88,6 @@ body{
   .commentModerator_Table_Items_UnFlag a {
     text-decoration: none;
     color: green;
-  }
-  #commentModerator_Table {
-    border-collapse: collapse;
   }
   #commentModerator_Table_Labels th, .commentModerator_Table_Items, td {
     height: 25px;
@@ -145,6 +143,10 @@ body{
     #logo {
       
     }
+    #table_container {
+      overflow-x:auto;
+    
+    
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
