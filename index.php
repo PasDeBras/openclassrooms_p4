@@ -77,7 +77,7 @@ try {
         // Blog post editor ---
         elseif ($_GET['action'] == 'admin_NewPost') { // Access new post editor view
             if ($_SESSION['adminAccess'] == 'admin') {
-                require('controller/adminPostEditorController.php');
+                require('controller/adminNewPostController.php');
                 postEditor_New();
             } else {
                 throw new Exception('Accès refusé.');
@@ -85,7 +85,7 @@ try {
         }
         elseif ($_GET['action'] == 'admin_SendNewPost') { // Insert new post into db
             if ($_SESSION['adminAccess'] == 'admin') {
-                require('controller/adminPostEditorController.php');
+                require('controller/adminNewPostController.php');
                 postEditor_SendNew($_POST['title'], $_POST['article']);
                 adminOverview();
             } else {
