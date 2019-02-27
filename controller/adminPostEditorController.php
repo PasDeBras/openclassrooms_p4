@@ -1,8 +1,6 @@
 <?php
 // Chargement des classes
 require_once('model/PostManager.php');
-
-
 function postEditor_Edit($id){
     $postManager = new OpenClassrooms\P4\Model\PostManager();
     $post = $postManager->getPost($id);

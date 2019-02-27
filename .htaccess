@@ -1,0 +1,5 @@
+ErrorDocument 400 /projects/openclassrooms_p4/error_pages/400.php
+ErrorDocument 401 /projects/openclassrooms_p4/error_pages/401.php
+ErrorDocument 403 /projects/openclassrooms_p4/error_pages/403.php
+ErrorDocument 404 /projects/openclassrooms_p4/error_pages/404.php
+ErrorDocument 500 /projects/openclassrooms_p4/error_pages/500.php
