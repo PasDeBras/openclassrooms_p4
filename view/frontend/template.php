@@ -14,7 +14,7 @@
                 <nav>
                     <ul class="menu_gobal">
                         <li><a href="index.php?action=userOverview">Blog</a></li>
-                        <li><a href="index.php?action=about">A propos</a></li>
+                        <li><a href="index.php?action=about">Auteur</a></li>
                         <li><a href="mailto:jeanforteroche@forteroche.fr">Contact</a></li>
                         <li><a href="index.php?action=secure">Connexion</a></li>
                     </ul>

@@ -3,7 +3,7 @@ session_start();
 try {
     // ----------------------------------------------------------- User -----------------------------------------------------------
     // Navigation ---
-    if (isset($_GET['action'])) { // Access blog view with all posts
+    if (isset($_GET['action'])) { // Access user blog view with all posts
         if ($_GET['action'] == 'userOverview') {
             require('controller/userOverviewController.php');
             userOverview();
@@ -44,7 +44,7 @@ try {
                 throw new Exception('Erreur : identifiant du commentaire non-renseigné !');
             }
         }
-        elseif ($_GET['action'] == 'about') {
+        elseif ($_GET['action'] == 'about') { // Access about view
             require('controller/userAboutController.php');
         }
         // ---------------------------------------------------------- ADMIN --------------------------------------------------------
@@ -141,7 +141,7 @@ try {
                 throw new Exception('ID non reconnu.');
             }
         }
-        elseif ($_GET['action'] == 'unflagComment') { // unflag Comment
+        elseif ($_GET['action'] == 'unflagComment') { // Unflag Comment
             if (isset($_GET['commentId']) && $_GET['commentId'] > 0) {
                 if ($_SESSION['adminAccess'] == 'admin') {
                     require('controller/commentModeratorController.php');
@@ -159,5 +159,5 @@ try {
 }
 catch(Exception $e) {
     $errorMessage = $e->getMessage();
-    require('view/frontend/errorView.php');
+    require('controller/errorController.php');
 }
