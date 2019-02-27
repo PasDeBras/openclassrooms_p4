@@ -12,14 +12,3 @@ tinymce.init({
     height : 500,
     branding: false
 }); 
-
-/* // Title
-tinymce.init({
-    selector: '#editable_title',
-    forced_root_block : '', 
-    inline: false,
-    menubar: false,
-    toolbar: false,
-    height : 10,
-    branding: false
-}); */

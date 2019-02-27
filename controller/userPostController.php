@@ -34,6 +34,6 @@ function addFlag($commentId, $postId)
 {
     $commentManager = new OpenClassrooms\P4\Model\CommentManager();
     $commentManager->flagComment($commentId);
-    header('Location: index.php?action=post&id=' . $postId . '&flagged=' . $commentId);
+    header('Location: index.php?action=userPostView&id=' . $postId . '&flagged=' . $commentId);
     
 }
