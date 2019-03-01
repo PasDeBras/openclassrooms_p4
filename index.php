@@ -51,18 +51,28 @@ try {
         // Authentification ---
         elseif ($_GET['action'] == 'secure') { // Access login view 
             require('controller/secureController.php');
+            secureView();
+        }
+        elseif ($_GET['action'] == 'passwordCheck') {
+            require('controller/secureController.php');
+            checkUser($_POST['login'], $_POST['password']);
+            echo 'done';
         }
         elseif ($_GET['action'] == 'disconnect') { // Disconnect admin
             session_destroy();
             header('Location: index.php?');
         }
         elseif ($_GET['action'] == 'admin') { // Log in admin and access admin blog view w/ mod tools
-            require('controller/adminOverviewController.php');
-            $_SESSION['adminAccess'] = 'admin';
-            adminOverview();
+            if ($_SESSION['user'] == 'admin') {
+                require('controller/adminOverviewController.php');
+                adminOverview();
+            } else {
+                throw new Exception('Identifiant ou mot de passe incorrect.');
+            }
+            
         }
         elseif ($_GET['action'] == 'adminPostView') { // Access admin post view w/ comments
-            if ($_SESSION['adminAccess'] == 'admin') {
+            if ($_SESSION['user'] == 'admin') {
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     require('controller/adminPostController.php');
                     adminPost();
@@ -76,7 +86,7 @@ try {
         }
         // Blog post editor ---
         elseif ($_GET['action'] == 'admin_NewPost') { // Access new post editor view
-            if ($_SESSION['adminAccess'] == 'admin') {
+            if ($_SESSION['user'] == 'admin') {
                 require('controller/adminNewPostController.php');
                 postEditor_New();
             } else {
@@ -84,7 +94,7 @@ try {
             }
         }
         elseif ($_GET['action'] == 'admin_SendNewPost') { // Insert new post into db
-            if ($_SESSION['adminAccess'] == 'admin') {
+            if ($_SESSION['user'] == 'admin') {
                 require('controller/adminNewPostController.php');
                 postEditor_SendNew($_POST['title'], $_POST['article']);
                 adminOverview();
@@ -93,7 +103,7 @@ try {
             }
         }
         elseif ($_GET['action'] == 'admin_EditPost') { // Access editor loaded with desired post to edit
-            if ($_SESSION['adminAccess'] == 'admin') {
+            if ($_SESSION['user'] == 'admin') {
                 if (isset($_GET['id']) && $_GET['id'] > 0){
                     require('controller/adminPostEditorController.php');
                     postEditor_Edit($_GET['id']);
@@ -105,7 +115,7 @@ try {
             }
         }
         elseif ($_GET['action'] == 'admin_SendEditedPost') { // Update edited post unto db
-            if ($_SESSION['adminAccess'] == 'admin') {
+            if ($_SESSION['user'] == 'admin') {
                 require('controller/adminPostEditorController.php');
                 postEditor_SendEdited($_GET['id'], $_POST['title'], $_POST['article']);
                 adminOverview();
@@ -114,7 +124,7 @@ try {
             }
         }
         elseif ($_GET['action'] == 'admin_DeletePost') { // Delete post from db
-            if ($_SESSION['adminAccess'] == 'admin') {
+            if ($_SESSION['user'] == 'admin') {
                 require('controller/adminPostEditorController.php');
                 postEditor_Delete($_GET['postId']);
             } else {
@@ -122,7 +132,7 @@ try {
             }
         }
         elseif ($_GET['action'] == 'admin_CommentModerator') { // Access moderation pending comments view
-            if ($_SESSION['adminAccess'] == 'admin') {
+            if ($_SESSION['user'] == 'admin') {
                 require('controller/commentModeratorController.php');
                 listFlaggedComments();
             } else {
@@ -131,7 +141,7 @@ try {
         }
         elseif ($_GET['action'] == 'deleteComment') { // Delete comment from db
             if (isset($_GET['commentId']) && $_GET['commentId'] > 0) {
-                if ($_SESSION['adminAccess'] == 'admin') {
+                if ($_SESSION['user'] == 'admin') {
                     require('controller/commentModeratorController.php');
                     commentDeletion($_GET['commentId']);
                 } else {
@@ -143,7 +153,7 @@ try {
         }
         elseif ($_GET['action'] == 'unflagComment') { // Unflag Comment
             if (isset($_GET['commentId']) && $_GET['commentId'] > 0) {
-                if ($_SESSION['adminAccess'] == 'admin') {
+                if ($_SESSION['user'] == 'admin') {
                     require('controller/commentModeratorController.php');
                     commentUnflagging($_GET['commentId']);
                 } else {

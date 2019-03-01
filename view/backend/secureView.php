@@ -3,26 +3,17 @@
 <?php ob_start(); ?>
 <div id="breadcrumbs"><a href="index.php?">Acceuil</a>/<a href="index.php?action=secure">Login</a></div>
 
-<?php if (!isset($_POST['password']) OR $_POST['password'] != "admin")
-{
-?>
 <div id="secure">
     <p id="password_notice">Veuillez entrer votre mot de passe pour acceder à cette partie du site :</p>
-        <form action="index.php?action=secure" method="post">
+        <form action="index.php?action=passwordCheck" method="post">
             <p>
+            <input type="text" name="login" />
             <input type="password" name="password" />
             <input type="submit" value="valider" />
             </p>
         </form>
 </div>
-    <?php
-}
-else
-{
-    header('Location: index.php?action=admin');
-}
 
-?>
 
 <?php $content = ob_get_clean(); ?>
 
