@@ -53,21 +53,28 @@ try {
             require('controller/secureController.php');
             secureView();
         }
-        elseif ($_GET['action'] == 'passwordCheck') {
+        elseif ($_GET['action'] == 'passwordCheck') { // Log in admin 
             require('controller/secureController.php');
-            checkUser($_POST['login'], $_POST['password']);
-            echo 'done';
+            if (isset($_POST['login'])) {
+                if (isset($_POST['password'])) {
+                    checkUser($_POST['login'], $_POST['password']);
+                } else {
+                    throw new Exception('Mot de passe non rempli');
+                }
+            } else {
+                throw new Exception('Identifiant non-rempli');
+            }
         }
         elseif ($_GET['action'] == 'disconnect') { // Disconnect admin
             session_destroy();
             header('Location: index.php?');
         }
-        elseif ($_GET['action'] == 'admin') { // Log in admin and access admin blog view w/ mod tools
+        elseif ($_GET['action'] == 'admin') { // Access admin blog view w/ mod tools
             if ($_SESSION['user'] == 'admin') {
                 require('controller/adminOverviewController.php');
                 adminOverview();
             } else {
-                throw new Exception('Identifiant ou mot de passe incorrect.');
+                throw new Exception('Accès refusé.');
             }
             
         }
