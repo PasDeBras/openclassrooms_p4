@@ -16,7 +16,7 @@
         </h3>
         
         <div class="book_chapterDiv_Content">
-            <?= htmlspecialchars_decode(nl2br(html_entity_decode($data['content']))) ?>
+            <?= mb_strimwidth((htmlspecialchars_decode(nl2br(html_entity_decode($data['content'])))), 0, 2000, "...") ?>
             <br />
             <p class="book_chapterDiv_Content_Comments">
             <em><a href="index.php?action=admin_EditPost&amp;id=<?= $data['id'] ?>">Editer</a></em>
